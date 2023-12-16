@@ -6,52 +6,77 @@
 	android:layout_height="match_parent"
 	android:orientation="vertical">
 	<LinearLayout
-		android:id="@+id/actionbar"
-		android:layout_width="match_parent"
-		android:layout_height="55dp"
-		android:background="#8BC34A"
-		android:gravity="right"
-		android:orientation="horizontal">
-		<ImageView
-			android:id="@+id/gradient"
-			android:layout_width="170dp"
-			android:layout_height="match_parent"
-			android:src="@drawable/logotipo_gradient"
-			android:scaleType="center"
-			android:alpha="0.5"/>
-	</LinearLayout>
-	<LinearLayout
 		android:id="@+id/base"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		android:background="#212121"
 		android:gravity="center_horizontal"
 		android:orientation="vertical">
+		<LinearLayout
+			android:id="@+id/actionbar"
+			android:layout_width="match_parent"
+			android:layout_height="50dp"
+			android:background="#8BC34A"
+			android:gravity="center_horizontal|center_vertical"
+			android:orientation="horizontal">
+			<TextView
+				android:id="@+id/geps"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:padding="8dp"
+				android:textSize="12sp"
+				android:textColor="#000000"/>
+		</LinearLayout>
 		<ImageView
-			android:id="@+id/logo"
-			android:layout_width="170dp"
+			android:id="@+id/ilogo"
+			android:layout_width="180dp"
 			android:layout_height="180dp"
 			android:layout_marginTop="24dp"
-			android:src="@drawable/icostart"
+			app:srcCompat="@drawable/icoini"
 			android:scaleType="fitCenter"/>
-		<TextView
-			android:id="@+id/title"
+		<LinearLayout
+			android:id="@+id/title_base"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:padding="8dp"
-			android:gravity="center_horizontal"
-			android:text="MCPEApp"
-			android:textSize="50sp"
-			android:textColor="#FFFFFF"/>
+			android:gravity="center_horizontal|top"
+			android:orientation="horizontal">
+			<TextView
+				android:id="@+id/title"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:paddingLeft="8dp"
+				android:paddingTop="8dp"
+				android:paddingBottom="3dp"
+				android:text="MCPEApp"
+				android:textSize="50sp"
+				android:textColor="#FFFFFF"/>
+		</LinearLayout>
 		<LinearLayout
-			android:id="@+id/extensor"
-			android:layout_width="wrap_content"
+			android:id="@+id/sublinear"
+			android:layout_width="match_parent"
 			android:layout_height="match_parent"
-			android:padding="8dp"
-			android:orientation="vertical"
-			android:layout_weight="1"/>
+			android:gravity="center_horizontal"
+			android:orientation="horizontal"
+			android:layout_weight="1">
+			<TextView
+				android:id="@+id/powered"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="200dp"
+				android:paddingRight="4dp"
+				android:text="Powered By"
+				android:textSize="10sp"
+				android:textColor="#FFFFFF"/>
+			<TextView
+				android:id="@+id/sht"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="SmartHardTec"
+				android:textSize="11sp"
+				android:textColor="#9E9E9E"/>
+		</LinearLayout>
 		<LinearLayout
-			android:id="@+id/border"
+			android:id="@+id/load_border"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:layout_marginLeft="12dp"
@@ -59,50 +84,47 @@
 			android:layout_marginBottom="32dp"
 			android:padding="3dp"
 			android:background="#33691E"
-			android:orientation="vertical">
-			<com.google.android.gms.ads.AdView
-				android:id="@+id/ad"
+			android:orientation="horizontal">
+			<LinearLayout
+				android:id="@+id/secondary"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				app:adSize="SMART_BANNER"
-				app:adUnitId="ca-app-pub-2954315498540267/4965095143"/>
-			<LinearLayout
-				android:id="@+id/base_info"
-				android:layout_width="match_parent"
-				android:layout_height="match_parent"
-				android:padding="8dp"
+				android:paddingLeft="8dp"
+				android:paddingTop="12dp"
+				android:paddingRight="8dp"
+				android:paddingBottom="12dp"
 				android:background="#689F38"
 				android:gravity="center_horizontal"
 				android:orientation="vertical">
 				<LinearLayout
-					android:id="@+id/progress"
+					android:id="@+id/linear1"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
-					android:padding="8dp"
 					android:gravity="center_vertical"
 					android:orientation="horizontal">
 					<ProgressBar
 						android:id="@+id/pb"
 						android:layout_width="match_parent"
-						android:layout_height="wrap_content"
+						android:layout_height="25dp"
+						android:padding="8dp"
 						android:indeterminate="false"
 						style="?android:progressBarStyleHorizontal"
 						android:layout_weight="1"/>
 					<TextView
-						android:id="@+id/percentage"
+						android:id="@+id/percen"
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
 						android:padding="8dp"
-						android:text="00%"
+						android:text="1%"
 						android:textSize="12sp"
 						android:textColor="#FFFFFF"/>
 				</LinearLayout>
 				<TextView
-					android:id="@+id/log"
+					android:id="@+id/status"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:padding="8dp"
-					android:text="ESPERANDO PERMISOS"
+					android:text="Esperando aceptación de los permisos"
 					android:textSize="12sp"
 					android:textColor="#FFFFFF"/>
 			</LinearLayout>

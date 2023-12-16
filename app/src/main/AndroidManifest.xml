@@ -1,45 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	package="com.smarthardtec.mcpeapp">
-	<uses-permission	android:name="android.permission.INTERNET"/>
-	<uses-permission	android:name="android.permission.ACCESS_NETWORK_STATE"/>
-	<uses-permission	android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-	<uses-permission	android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+	xmlns:tools="http://schemas.android.com/tools">
+
+	<uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+	<uses-permission android:name="android.permission.INTERNET"/>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+		tools:ignore="ScopedStorage" />
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
+	<uses-feature
+		android:name="android.hardware.touchscreen"
+		android:required="true"
+		tools:ignore="UnsupportedTvHardware" />
+	<uses-feature
+		android:name="android.software.leanback"
+		android:required="true" />
+	<uses-feature
+		android:name="android.hardware.location.gps"
+		android:required="false" />
+
 	<application
 		android:allowBackup="true"
-		android:label="MCPEApp v5"
+		android:label="MCPEApp"
 		android:icon="@drawable/app_icon"
 		android:largeHeap="true"
-		android:theme="@style/AppTheme">
+		android:theme="@style/AppTheme"
+		android:requestLegacyExternalStorage="true"
+		android:supportsRtl="true"
+		android:banner="@drawable/app_icon">
 		<activity
-			android:name=".MainActivity"
+			android:name="com.mcpeid.app.MainActivity"
 			android:configChanges="orientation|screenSize"
-			android:windowSoftInputMode="stateHidden">
+			android:screenOrientation="fullSensor"
+			android:windowSoftInputMode="stateHidden"
+			android:exported="true">
 			<intent-filter>
-				<action	android:name="android.intent.action.MAIN"/>
-				<category	android:name="android.intent.category.LAUNCHER"/>
+				<action android:name="android.intent.action.MAIN" />
+				<action android:name="android.intent.category.MAINACTIVITY" />
+
+				<category android:name="android.intent.category.LAUNCHER" />
+				<category android:name="android.intent.category.DEFAULT" />
+				<category android:name="android.intent.category.LEANBACK_LAUNCHER" />
 			</intent-filter>
 		</activity>
 		<activity
-			android:name=".LoginActivity"
+			android:name="com.mcpeid.app.LoginActivity"
+			android:configChanges="orientation|screenSize"
+			android:windowSoftInputMode="stateVisible"/>
+		<activity
+			android:name="com.mcpeid.app.RegisterActivity"
+			android:configChanges="orientation|screenSize"
+			android:windowSoftInputMode="stateVisible"/>
+		<activity
+			android:name="com.mcpeid.app.PrincipalActivity"
 			android:configChanges="orientation|screenSize"
 			android:windowSoftInputMode="stateHidden"/>
 		<activity
-			android:name=".RegisterActivity"
+			android:name="com.mcpeid.app.PublicationActivity"
+			android:configChanges="orientation|screenSize"
+			android:screenOrientation="fullSensor"/>
+		<activity
+			android:name="com.mcpeid.app.ProfileActivity"
 			android:configChanges="orientation|screenSize"
 			android:windowSoftInputMode="stateHidden"/>
 		<activity
-			android:name=".SplashActivity"
+			android:name="com.mcpeid.app.ShopActivity"
 			android:configChanges="orientation|screenSize"
 			android:windowSoftInputMode="stateHidden"/>
 		<activity
-			android:name=".PrincipalActivity"
+			android:name="com.mcpeid.app.AboutActivity"
 			android:configChanges="orientation|screenSize"
-			android:windowSoftInputMode="stateHidden"/>
-		<activity
-			android:name=".ProfileActivity"
-			android:configChanges="orientation|screenSize"
-			android:screenOrientation="portrait"
 			android:windowSoftInputMode="stateHidden"/>
 		<activity
 			android:name="com.google.android.gms.ads.AdActivity"
@@ -50,14 +84,23 @@
 			android:value="@integer/google_play_services_version"/>
 		<provider
 			android:name="com.google.firebase.provider.FirebaseInitProvider"
-			android:authorities="com.smarthardtec.mcpeapp.firebaseinitprovider"
+			android:authorities="com.mcpeid.app.firebaseinitprovider"
 			android:exported="false"
 			android:initOrder="100"/>
+		<meta-data
+			android:name="com.google.android.gms.ads.APPLICATION_ID"
+			android:value="ca-app-pub-2954315498540267~5057820130" />
 		<service
 			android:name="com.google.firebase.components.ComponentDiscoveryService"
 			android:exported="false">
 			<meta-data
+				android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+				android:value="com.google.firebase.components.ComponentRegistrar"/>
+			<meta-data
 				android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
+				android:value="com.google.firebase.components.ComponentRegistrar"/>
+			<meta-data
+				android:name="com.google.firebase.components:com.google.firebase.storage.StorageRegistrar"
 				android:value="com.google.firebase.components.ComponentRegistrar"/>
 		</service>
 		<uses-library
