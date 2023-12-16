@@ -1,2 +1,7 @@
 .gradle
 .idea
+
+.idea/**
+
+app/build
+app/build/**
